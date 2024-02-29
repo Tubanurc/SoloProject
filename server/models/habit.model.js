@@ -16,8 +16,8 @@ const HabitSchema = new mongoose.Schema({
     description: {
         type: String,
         required:[true, "Description is required."],
-        min: [3, "The must be at at least 3 characters long."],
-        max: [100, "The description is too long!"]
+        minlength: [3, "The must be at at least 3 characters long."],
+        maxlength: [100, "The description is too long!"]
     },
     },
     {timestamps: true})
