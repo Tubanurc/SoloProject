@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { useParams} from 'react-router-dom';  //in order to grab that id from url
 import {useNavigate} from 'react-router-dom' 
+import {Link} from 'react-router-dom'
+
 
 //prop or props?
 const ViewOne = (prop) => {
@@ -33,8 +35,19 @@ const ViewOne = (prop) => {
     }
     return (
       <div>
-        <h1>{habit.name}</h1>
-        <div>
+        <div style={{ background: '#FFF6FF',color:'black', padding: '10px', width: '80vw', display: 'flex', alignItems: 'center' }}>
+            <div style={{ padding: '20px' }}>
+                <Link to={`/`}> Home </Link>
+            </div>
+            <div style={{ flex: 1, textAlign: 'center' }}>
+                <h1> Details </h1>
+            </div>
+            <div style={{padding:'20px'}}>
+                <Link to={`/newHabit`}> New Habit </Link>
+            </div>
+        </div>
+
+        <div style={{ border: '2px solid gray', backgroundColor: '#FFF6FF', padding: '30px', margin: '20px' }}>
             <h2> Name: {habit.name} </h2>
             <h2> Description: {habit.description} </h2>
             <h2> Category: {habit.category} </h2>

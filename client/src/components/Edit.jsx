@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { useParams, useNavigate} from 'react-router-dom';  //in order to grab that id from url
+import {Link} from 'react-router-dom'
 
 
 const options = [
@@ -68,36 +69,57 @@ const Edit = (props) => {
     }
     return (
         <div>
-            <h1> EDIT </h1>
-            <form onSubmit={submitHandler}>
-                <label> Name: </label>
-                <input type="text" onChange={(e)=> setName(e.target.value)} value={name}/>
+            <div style={{ background: '#FFF6FF',color:'black', padding: '10px', width: '80vw', display: 'flex', alignItems: 'center' }}>
+                <div style={{ padding: '20px' }}>
+                    <Link to={`/`}>Home</Link>
+                </div>
+                <div style={{ flex: 1, textAlign: 'center' }}>
+                    <h1> Edit </h1>
+                </div>
+                <div style={{padding:'20px'}}>
+                    <Link to={`/newHabit`}> New Habit </Link>
+                </div>
+            </div>
+            <form onSubmit={submitHandler} >
+                <div style={{ padding: '10px', margin: '10px' }}>
+                    <label> Name: </label>
+                    <br />
+                    <input type="text" onChange={(e)=> setName(e.target.value)} value={name}/>
                 {
                     errors.name?
                     <p> {errors.name.message} </p>:
                     null
                 }
-                <label> Description: </label>
-                <input type="text" onChange={(e)=> setDescription(e.target.value)} value={description}/>
-                {
-                    errors.description?
-                    <p> {errors.description.message} </p>:
-                    null
-                }
-                <label> Category: </label>
-                <select onChange={(e)=> setCategory(e.target.value)}>
+                </div>
+                <div style={{ padding: '10px', margin: '10px' }}>
+                    <label> Description: </label>
+                    <br />
+                    <input type="text" onChange={(e)=> setDescription(e.target.value)} value={description}/>
                     {
-                        dropdown.map((option) => (
-                            option
-                        ))
+                        errors.description?
+                        <p> {errors.description.message} </p>:
+                        null
                     }
-                </select>
-                {
-                    errors.category?
-                    <p> {errors.category.message} </p>:
-                    null
-                }
-                <button type="submit"> Submit </button>
+                </div>
+                <div style={{ padding: '10px', margin: '10px' }}>
+                    <label> Category: </label>
+                    <br />
+                    <select onChange={(e)=> setCategory(e.target.value)}>
+                        {
+                            dropdown.map((option) => (
+                                option
+                                ))
+                            }
+                    </select>
+                    {
+                        errors.category?
+                        <p> {errors.category.message} </p>:
+                        null
+                    }
+                </div>
+                <div>
+                    <button type="submit"> Submit </button>
+                </div>
             </form>
 
         </div>

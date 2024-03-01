@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom'
 
 const DisplayAll = (props) => {
     const {habitList, setHabitList} = props 
+    
     useEffect(() => {
         axios.get('http://localhost:8000/api/allHabits')
             .then((response) => {
@@ -15,6 +16,8 @@ const DisplayAll = (props) => {
                 console.log(err);
             })
     }, [])
+    
+
     return (
         <div >
             <div style={{ background: '#FFF6FF',color:'black', padding: '10px', width: '80vw', display: 'flex', alignItems: 'center' }}>
@@ -28,9 +31,10 @@ const DisplayAll = (props) => {
                     <Link to={`/newHabit`}> New Habit </Link>
                 </div>
             </div>
+
             {
                 habitList.map((habit) => (
-                    <div key={habit._id}>
+                    <div key={habit._id} style={{ border: '2px solid gray', backgroundColor: '#FFF6FF', padding: '30px', margin: '20px' }}>
                         <h2> Category: {habit.category}</h2>
                         <h2> Name: {habit.name} </h2>
                         <h2> Description: {habit.description} </h2>
