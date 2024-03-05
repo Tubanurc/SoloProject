@@ -14,8 +14,6 @@ const ViewOne = (prop) => {
 
     useEffect(()=> {
         axios.get(`http://localhost:8000/api/findOneHabit/${id}`)
-            // 1- bu obkect olarak habitu getiriyor console log a. 
-            // axious back end ile iletisime geciriyor
             .then((res) => {
                 console.log(res);
                 setHabit(res.data)
@@ -34,27 +32,26 @@ const ViewOne = (prop) => {
         })
     }
     return (
-      <div>
-        <div style={{ background: '#FFF6FF',color:'black', padding: '10px', width: '80vw', display: 'flex', alignItems: 'center' }}>
-            <div style={{ padding: '20px' }}>
-                <Link to={`/`}> Home </Link>
+        <div >
+            <div className="display-all-container">
+                <div className="display-all-link">
+                    <Link to="/">Home</Link>
+                </div>
+                <div className="display-all-title">
+                    <h1>Details</h1>
+                </div>
+                <div className="display-all-link">
+                    <Link to="/newHabit">New Habit</Link>
+                </div>
             </div>
-            <div style={{ flex: 1, textAlign: 'center' }}>
-                <h1> Details </h1>
+            <div className="habit-card2">
+                <h2>  {habit.name} </h2>
+                <h2>  {habit.description} </h2>
+                <h2>  {habit.category} </h2>
+                <button class="button" onClick={deleteHandler}> Delete </button>
             </div>
-            <div style={{padding:'20px'}}>
-                <Link to={`/newHabit`}> New Habit </Link>
-            </div>
-        </div>
 
-        <div style={{ border: '2px solid gray', backgroundColor: '#FFF6FF', padding: '30px', margin: '20px' }}>
-            <h2> Name: {habit.name} </h2>
-            <h2> Description: {habit.description} </h2>
-            <h2> Category: {habit.category} </h2>
-            <button onClick={deleteHandler}> Delete {habit.name} </button>
         </div>
-
-      </div>
     )
 }
 

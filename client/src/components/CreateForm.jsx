@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
-import {Link} from 'react-router-dom'
+import {useNavigate, Link} from 'react-router-dom'
+
 
 const CreateForm = (props) => {
     const navigate = useNavigate() // redirection
@@ -10,7 +10,12 @@ const CreateForm = (props) => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [errors, setErrors] = useState({})
+
     
+    const audio = new Audio();
+    audio.src = "/Users/tuban/Desktop/c_d/mySoloProj/client/src/components/button.wav"
+
+
     const submitHandler = (e) => {
         e.preventDefault()
         const newHabit = {category, name, description}
@@ -29,19 +34,19 @@ const CreateForm = (props) => {
 
     return (
         <div>
-            <div style={{ background: '#FFF6FF',color:'black', padding: '10px', width: '80vw', display: 'flex', alignItems: 'center' }}>
-                <div style={{ padding: '20px' }}>
-                    <Link to={`/`}>Home</Link>
+            <div className="display-all-container">
+                <div className="display-all-link">
+                    <Link to="/">Home</Link>
                 </div>
-                <div style={{ flex: 1, textAlign: 'center' }}>
+                <div className="display-all-title">
                     <h1> New Habit </h1>
                 </div>
-                <div style={{padding:'20px'}}>
-                    <Link to={`/newHabit`}> New Habit </Link>
+                <div className="display-all-link">
+                    <Link to="/newHabit">New Habit</Link>
                 </div>
             </div>
-            <form onSubmit={submitHandler} onSubmit={submitHandler} style={{ border: '2px solid gray', backgroundColor: '#FFF6FF', padding: '30px', margin: '20px' }}>
-                <div style={{ padding: '10px', margin: '10px' }}>
+            <form onSubmit={submitHandler} className="habit-card2">
+                <div style={{ padding: '10px', margin: '10px', fontSize: '24px'}}>
                     <label> Name: </label>
                     <br />
                     <input type="text" onChange={(e)=> setName(e.target.value)} value={name}/>
@@ -51,7 +56,7 @@ const CreateForm = (props) => {
                         null
                     }
                 </div>
-                <div style={{ padding: '10px', margin: '10px' }}>
+                <div style={{ padding: '10px', margin: '10px', fontSize: '24px'}}>
                     <label> Description: </label>
                     <br />
                     <input type="text" onChange={(e)=> setDescription(e.target.value)} value={description}/>
@@ -65,16 +70,16 @@ const CreateForm = (props) => {
                     <label> Category: </label>
                     <br />
                     <select onChange={(e)=> setCategory(e.target.value)}>
-                        <option value="PersonalGrowth"> PersonalGrowth</option>
+                        <option value="PersonalGrowth"> Personal Growth</option>
                         <option value="Sprituality"> Sprituality</option>
-                        <option value="Finances">"Finances</option>
+                        <option value="Finances">Finances</option>
                         <option value="Career"> Career</option>
                         <option value="Health"> Health</option>
                         <option value="Fun"> Fun</option>
                         <option value="Environment"> Environment</option>
                         <option value="Community"> Community</option>
                         <option value="FamilyFriends"> Family Friends</option>
-                        <option value="PartnerLove"> Partner Love</option>
+                        <option value="PartnerLove"> Love</option>
                     </select>
                     {
                         errors.category?
@@ -83,7 +88,8 @@ const CreateForm = (props) => {
                     }
                 </div>
 
-                <button type="submit"> Submit </button>
+                <button className="button" onClick={() => "audio.play()"} type="submit"> Submit </button>
+
             </form>
 
         </div>

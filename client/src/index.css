@@ -1,108 +1,146 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    
+  
+    color-scheme: light dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: rgba(36, 36, 36, 0.5);
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+  }
+  
+  .display-all-container {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: rgba(255, 246, 255, 0.5);
+    color: black;
+    padding: 10px;
+    width: 100%;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    opacity: 0.9;
+    height: 80px;
+    border-radius: 15px;
+    border-width: 1px;
+    border: solid rgb(242, 235, 235);
+  }
+  
+  .display-all-link {
+    padding: 20px;
+    z-index: 1;
+    z-index: 1;
+    opacity: 0.9;
+  }
+  
+  .display-all-title {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    z-index: 1;
+    z-index: 1;
+    opacity: 0.9;
+  }
+  
+  .allhabits{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .habit-card {
+    /* border: 2px solid gray; */
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: rgba(255, 246, 255, 0.5);
+    padding: 30px;
+    margin: 10px;
+    z-index: 1;
+    opacity: 0.9;
+    width: calc(25% - 20px);
+    border-radius: 15px;
+    border-width: 1px;
+    border: solid rgb(242, 235, 235)
+  }
+  .habit-card2{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: rgba(255, 246, 255, 0.5);
+    padding: 30px;
+    margin: 10px;
+    z-index: 1;
+    opacity: 0.9;
+    border-radius: 15px;
+    border-width: 1px;
+    border: solid rgb(242, 235, 235)
+  }
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* video */
+  .section{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* asagidaki hidden yada scroll */
+    overflow: scroll; 
+    z-index: -1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.video-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* silebilirsin belki? gap icin */
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+    margin: 0;
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+
+.button{
+    width: 120px;
+    height: 40px;
+    outline: none;
+    border: 0; 
+    color: #252b2a;
+    background-color: #b6dde3;
+    padding: 5px;
+    margin: 5 px;
+    border-radius: 15px;
+    border-width: 1px;
+    border: solid #c5e1e4;
+    cursor: pointer;
+}
+
+.button2{
+    width: 80px;
+    height: 38px;
+    outline: none;
+    border: 0; 
+    color: #252b2a;
+    background-color: #c3dcdf;
+    padding: 5px;
+    margin: 5 px;
+    border-radius: 15px;
+    border-width: 1px;
+    border: solid #c5e1e4;
+    cursor: pointer;
 }
 
 
-/*this part is about wheel */
-.wheel-container {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  border: 2px solid #333;
-  overflow: hidden;
-}
+.button :hover{
+    opacity: .7;
 
-.wheel-pie {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  clip-path: polygon(50% 50%, 100% 0, 100% 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform-origin: 100% 100%;
 }
-
-.wheel-tier {
-  width: 10px; /* Adjust the width as needed */
-  height: 50%;
-  background-color: #ddd;
-  transform-origin: bottom;
-  transition: transform 0.3s ease-in-out;
-}
-
-.tier-1 {
-  transform: scaleY(0.1);
-}
-
-.tier-2 {
-  transform: scaleY(0.2);
-}
-
-/* Add more styles for additional tiers */
