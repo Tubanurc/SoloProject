@@ -2,14 +2,20 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import click2 from "../assets/click2.wav"
 
+const playSound = () => {
+    let audio1 = new Audio(click2);
+    audio1.volume = 0.3; 
+    audio1.play()
+}
 
-
-//that is all
 
 
 const DisplayAll = (props) => {
     const { habitList, setHabitList } = props;
+        
+
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/allHabits')
@@ -26,13 +32,13 @@ const DisplayAll = (props) => {
         <div>
             <div className="display-all-container">
                 <div className="display-all-link">
-                    <Link to="/">Home</Link>
+                    <Link to="/" onClick={playSound}>Home</Link>
                 </div>
                 <div className="display-all-title">
                     <h1>Wheel of Life</h1>
                 </div>
                 <div className="display-all-link">
-                    <Link to="/newHabit">New Habit</Link>
+                    <Link to="/newHabit" onClick={playSound}>New Habit</Link>
                 </div>
             </div>
             <div className='allhabits'>
@@ -45,8 +51,8 @@ const DisplayAll = (props) => {
                     <h5>{habit.name}</h5>
                     <h6>{habit.description}</h6>
                     <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                        <div class="button2"><Link to={`/edit/${habit._id}`}>Edit</Link></div>
-                        <div class="button2"><Link to={`/habit/${habit._id}`}>Details</Link></div>
+                        <div class="button2"><Link to={`/edit/${habit._id}`} onClick={playSound}>Edit</Link></div>
+                        <div class="button2"><Link to={`/habit/${habit._id}`} onClick={playSound}>Details</Link></div>
                     </div>
                 </div>
             ))}

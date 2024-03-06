@@ -1,8 +1,19 @@
 import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import {useNavigate, Link} from 'react-router-dom'
+import click2 from "../assets/click2.wav"
+import buttonSound from "../assets/buttonSound.wav"
 
-
+const playSound = () => {
+    let audio1 = new Audio(buttonSound);
+    audio1.volume = 0.3; 
+    audio1.play()
+}
+const playSound2 = () => {
+    let audio1 = new Audio(click2);
+    audio1.volume = 0.3; 
+    audio1.play()
+}
 const CreateForm = (props) => {
     const navigate = useNavigate() // redirection
     const {habitList, setHabitList} = props;
@@ -11,9 +22,8 @@ const CreateForm = (props) => {
     const [description, setDescription] = useState("");
     const [errors, setErrors] = useState({})
 
-    
-    const audio = new Audio();
-    audio.src = "/Users/tuban/Desktop/c_d/mySoloProj/client/src/components/button.wav"
+
+
 
 
     const submitHandler = (e) => {
@@ -30,19 +40,25 @@ const CreateForm = (props) => {
                 console.log(err.response.data.errors);
                 setErrors(err.response.data.errors)
             })
-    }
+    };
+
+    // const BoopButton = () => {
+    //     const [play] = useSound(boopSfx);
+    //     return <button onClick={play}>Boop!</button>;
+    // };
+
 
     return (
         <div>
             <div className="display-all-container">
                 <div className="display-all-link">
-                    <Link to="/">Home</Link>
+                    <Link to="/" onClick={playSound2}>Home</Link>
                 </div>
                 <div className="display-all-title">
                     <h1> New Habit </h1>
                 </div>
                 <div className="display-all-link">
-                    <Link to="/newHabit">New Habit</Link>
+                    <Link to="/newHabit" onClick={playSound2}>New Habit</Link>
                 </div>
             </div>
             <form onSubmit={submitHandler} className="habit-card2">
@@ -69,7 +85,7 @@ const CreateForm = (props) => {
                 <div style={{ padding: '10px', margin: '10px' }}>
                     <label> Category: </label>
                     <br />
-                    <select onChange={(e)=> setCategory(e.target.value)}>
+                    <select onChange={(e)=> setCategory(e.target.value)} >
                         <option value="PersonalGrowth"> Personal Growth</option>
                         <option value="Sprituality"> Sprituality</option>
                         <option value="Finances">Finances</option>
@@ -88,7 +104,7 @@ const CreateForm = (props) => {
                     }
                 </div>
 
-                <button className="button" onClick={() => "audio.play()"} type="submit"> Submit </button>
+                <button className="button" type="submit" onClick={playSound} > Submit </button>
 
             </form>
 

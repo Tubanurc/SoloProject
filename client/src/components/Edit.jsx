@@ -2,16 +2,22 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios';
 import { useParams, useNavigate} from 'react-router-dom';  //in order to grab that id from url
 import {Link} from 'react-router-dom'
+import click2 from "../assets/click2.wav"
 
+const playSound = () => {
+    let audio1 = new Audio(click2);
+    audio1.volume = 0.3; 
+    audio1.play()
+}
 
 const options = [
-    {value: "PersonalGrowth"},
+    {value: "Personal Growth"},
     {value: "Sprituality"},
     {value: "Finances"},
     {value: "Career"},
     {value: "Fun"},
     {value: "Environment"},
-    {value: "FamilyFriends"},
+    {value: "Family Friends"},
     {value: "PartnerLove"}
 ]
 
@@ -71,18 +77,18 @@ const Edit = (props) => {
         <div>
             <div className="display-all-container">
                 <div className="display-all-link">
-                    <Link to="/">Home</Link>
+                    <Link to="/" onClick={playSound}>Home</Link>
                 </div>
                 <div className="display-all-title">
                     <h1>Edit</h1>
                 </div>
                 <div className="display-all-link">
-                    <Link to="/newHabit">New Habit</Link>
+                    <Link to="/newHabit" onClick={playSound}>New Habit</Link>
                 </div>
             </div>
             <div className="habit-card2">
                 <form onSubmit={submitHandler} >
-                    <div style={{ padding: '10px', margin: '10px' }}>
+                    <div style={{ padding: '10px', margin: '10px', fontSize: '24px' }}>
                         <label> Name: </label>
                         <br />
                         <input type="text" onChange={(e)=> setName(e.target.value)} value={name}/>
@@ -92,7 +98,7 @@ const Edit = (props) => {
                         null
                     }
                     </div>
-                    <div style={{ padding: '10px', margin: '10px' }}>
+                    <div style={{ padding: '10px', margin: '10px' , fontSize: '24px'}}>
                         <label> Description: </label>
                         <br />
                         <input type="text" onChange={(e)=> setDescription(e.target.value)} value={description}/>
@@ -102,7 +108,7 @@ const Edit = (props) => {
                             null
                         }
                     </div>
-                    <div style={{ padding: '10px', margin: '10px' }}>
+                    <div style={{ padding: '10px', margin: '10px', fontSize: '24px' }}>
                         <label> Category: </label>
                         <br />
                         <select onChange={(e)=> setCategory(e.target.value)}>
@@ -119,7 +125,7 @@ const Edit = (props) => {
                         }
                     </div>
                     <div>
-                        <button class="button" type="submit"> Submit </button>
+                        <button class="button" type="submit" onClick={playSound}> Submit </button>
                     </div>
                 </form>
             </div>

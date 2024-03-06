@@ -3,8 +3,13 @@ import axios from 'axios';
 import { useParams} from 'react-router-dom';  //in order to grab that id from url
 import {useNavigate} from 'react-router-dom' 
 import {Link} from 'react-router-dom'
+import click2 from "../assets/click2.wav"
 
-
+const playSound = () => {
+    let audio1 = new Audio(click2);
+    audio1.volume = 0.3; 
+    audio1.play()
+}
 //prop or props?
 const ViewOne = (prop) => {
     const navigate = useNavigate()
@@ -35,20 +40,20 @@ const ViewOne = (prop) => {
         <div >
             <div className="display-all-container">
                 <div className="display-all-link">
-                    <Link to="/">Home</Link>
+                    <Link to="/" onClick={playSound}>Home</Link>
                 </div>
                 <div className="display-all-title">
                     <h1>Details</h1>
                 </div>
                 <div className="display-all-link">
-                    <Link to="/newHabit">New Habit</Link>
+                    <Link to="/newHabit" onClick={playSound}>New Habit</Link>
                 </div>
             </div>
             <div className="habit-card2">
                 <h2>  {habit.name} </h2>
                 <h2>  {habit.description} </h2>
                 <h2>  {habit.category} </h2>
-                <button class="button" onClick={deleteHandler}> Delete </button>
+                <button class="button" onClick={deleteHandler} > Delete </button>
             </div>
 
         </div>

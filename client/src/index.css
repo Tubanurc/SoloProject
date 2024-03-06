@@ -4,9 +4,9 @@
     font-weight: 400;
     
   
-    color-scheme: light dark;
+    color-scheme: light;
     color: rgba(255, 255, 255, 0.87);
-    background-color: rgba(36, 36, 36, 0.5);
+    background-color: #91CABA;
   
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -23,7 +23,7 @@
     background: rgba(255, 246, 255, 0.5);
     color: black;
     padding: 10px;
-    width: 100%;
+    width: 99%;
     margin: 5px;
     display: flex;
     align-items: center;
@@ -107,6 +107,7 @@
 /* silebilirsin belki? gap icin */
 body {
     margin: 0;
+    background-color: #91CABA;
   }
 
 .button{
